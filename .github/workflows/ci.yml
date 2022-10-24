@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - '**.go'
+      - '.github/workflows/**.yml'
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint:
+    strategy:
+      matrix:
+        go-version: [ 1.18.x ]
+        platform: [ ubuntu-latest ]
+    name: lint files
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v2.5.2
+        with:
+          version: latest
+  
+  test:
+    strategy:
+      matrix:
+        go-version: [ 1.18.x ]
+        platform: [ ubuntu-latest ]
+    name: test files
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: test go files
+        run: go test -v ./...
