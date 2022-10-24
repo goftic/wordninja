@@ -161,13 +161,13 @@ func getWordCost(word string) float64 {
 	return 9e99
 }
 
-// min return the minimal cost of the matchs.
-func minCost(matchs []match) (match, error) {
-	if len(matchs) == 0 {
+// min return the minimal cost of the matches.
+func minCost(matches []match) (match, error) {
+	if len(matches) == 0 {
 		return match{}, errors.New("match.len ")
 	}
-	r := matchs[0]
-	for _, m := range matchs {
+	r := matches[0]
+	for _, m := range matches {
 		if m.cost < r.cost {
 			r = m
 		}
