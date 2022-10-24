@@ -1,4 +1,4 @@
-name: ci
+name: linting
 
 on:
   push:
@@ -26,18 +26,3 @@ jobs:
         uses: golangci/golangci-lint-action@v2.5.2
         with:
           version: latest
-  
-  test:
-    strategy:
-      matrix:
-        go-version: [ 1.18.x ]
-        platform: [ ubuntu-latest ]
-    name: test files
-    runs-on: ${{ matrix.platform }}
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-go@v3
-        with:
-          go-version: ${{ matrix.go-version }}
-      - name: test go files
-        run: go test -v ./...
