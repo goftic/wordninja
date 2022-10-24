@@ -1,3 +1,6 @@
+![go test](https://github.com/goftic/wordninja/actions/workflows/go%20test.yml/badge.svg)
+![go test](https://github.com/goftic/wordninja/actions/workflows/linting.yml/badge.svg)
+
 <img src="https://user-images.githubusercontent.com/2049665/29219793-b4dcb942-7e7e-11e7-8785-761b0e784e04.png" width=100px />
 
 # Word Ninja
