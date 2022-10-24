@@ -6,7 +6,7 @@ import (
 	"github.com/go-playground/assert/v2"
 )
 
-func Test(t *testing.T) {
+func TestSplit(t *testing.T) {
 	var testCases = []struct {
 		Name     string
 		Text     string
